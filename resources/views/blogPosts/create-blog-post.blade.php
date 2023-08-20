@@ -11,24 +11,24 @@
     <p>{{session('status')}}</p>
 @endif
 <div class="contact-form">
-    <form action="{{route('blog.store')}}" methods="post" enctype="multipart/form-data">
+    <form action="{{route('blog.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <label for="title"><span>Title</span></label>
         <input type="text" id="title" name="title" value="{{old('title')}}"/>
         @error('title')
-           <p style="color:red; magrin-button: 25px"> {{message}}  </p>          
+           <p style="color:red; magrin-button: 25px"> {{$message}}  </p>          
         @enderror
 
         <label for="image"><span>Image</span></label>
         <input type="file" id="image" name="image" />
         @error('image')
-           <p style="color:red; magrin-button: 25px"> {{message}}  </p>          
+           <p style="color:red; magrin-button: 25px"> {{$message}}  </p>          
         @enderror
 
         <label for="body"><span>Body</span></label>
         <textarea type="text" id="body" name="body" >{{old('body')}}</textarea>
         @error('body')
-           <p style="color:red; magrin-button: 25px"> {{message}}  </p>          
+           <p style="color:red; magrin-button: 25px"> {{$message}}  </p>          
         @enderror
 
         <input type="submit" value="Submit"/>

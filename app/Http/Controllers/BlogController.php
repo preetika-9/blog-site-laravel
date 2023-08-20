@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class BlogController extends Controller
@@ -48,9 +50,7 @@ class BlogController extends Controller
 
         $post->save();
 
-      return response()->json([
-        'status'=>'success'
-      ],201);
+        return redirect()->back()->with('status', 'Post Created Successfully');
     }
 
     public function show(){
